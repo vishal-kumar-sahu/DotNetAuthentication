@@ -1,0 +1,51 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Users Registration</h1>
+<hr />
+<div class="row d-flex justify-content-center">
+    <div class="col-md-3">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <label asp-for="Input.FirstName" class="form-label mt-3">First Name</label>
+                <input asp-for="Input.FirstName" type="text" class="form-control" aria-required="true" id="FirstName" placeholder="Enter First Name">
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Input.LastName" class="form-label mt-3">Last Name</label>
+                <input asp-for="Input.LastName" type="text" class="form-control" aria-required="true" id="LastName" placeholder="Enter Last Name">
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Input.Email" class="form-label mt-3">Email address</label>
+                <input asp-for="Input.Email" type="email" aria-required="true" class="form-control" id="Email" placeholder="Enter email">
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Input.Password" class="form-label mt-3">Password</label>
+                <input asp-for="Input.Password" type="password" class="form-control" aria-required="true" id="Password" placeholder="Password" autocomplete="off">
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Input.ConfirmPassword" class="form-label mt-3">Confirm Password</label>
+                <input asp-for="Input.ConfirmPassword" type="password" class="form-control" aria-required="true" id="ConfirmPassword" placeholder="Confirm Password" autocomplete="off">
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4 d-flex justify-content-center">
+                <input id="registerSubmit" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-4 d-flex justify-content-end">
+    <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Back to Login</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
